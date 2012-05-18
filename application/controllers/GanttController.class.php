@@ -1,0 +1,25 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of GanttController
+ *
+ * @author sourn
+ */
+class GanttController extends ApplicationController {
+    var $plugin_name = "gantt";	
+    function __construct() {
+            parent::__construct();
+            prepare_company_website_controller($this, 'website');
+    }
+    function show_gantt() {
+	//$txt = "Gantt_work";
+	//tpl_assign('message',$txt);
+    }
+}
+
+?>
