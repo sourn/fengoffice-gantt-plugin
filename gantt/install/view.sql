@@ -1,0 +1,2 @@
+CREATE OR REPLACE view fo_gantt AS SELECT tasks.object_id AS "pID", tasks.text AS "pName", tasks.start_date AS "pStart", tasks.due_date AS "pEnd", (select ws.color from fo_workspaces AS ws where tasks.object_id=ws.object_id ) AS pColor, tasks.milestone_id AS "pMile", (select con.first_name from fo_contacts AS con where tasks.assigned_to_contact_id=con.object_id) AS pRes, tasks.percent_completed AS "pComp", tasks.parent_id AS "pParent" 
+from fo_project_tasks AS tasks;
