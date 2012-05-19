@@ -17,6 +17,7 @@ class GanttController extends ApplicationController {
             prepare_company_website_controller($this, 'website');
     }
     function show_gantt() {
+        require_javascript('jsgantt.js', $this->plugin_name);
 	//$txt = "Gantt_work";
 	//tpl_assign('message',$txt);
     }
