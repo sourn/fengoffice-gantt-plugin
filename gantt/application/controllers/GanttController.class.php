@@ -16,6 +16,9 @@ class GanttController extends ApplicationController {
             parent::__construct();
             prepare_company_website_controller($this, 'website');
     }
+    function gantt_get_data() {
+        
+    }
     function show_gantt() {
         require_javascript('jsgantt.js', $this->plugin_name);
     }

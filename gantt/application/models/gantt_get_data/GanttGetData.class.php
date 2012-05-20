@@ -8,16 +8,28 @@
  * @author sourn
  */
 
-abstract class GanttGetData extends DataManager {
+abstract class GanttGetData extends MysqlDBAdapter {
 
     	static private $columns = array(
-	    'object_id' => DATA_TYPE_INTEGER,
-	    'description' => DATA_TYPE_TEXT,
-	    'show_description_in_overview' => DATA_TYPE_TINYINT,
-            'color' => DATA_TYPE_INT
+	    'pID' => DATA_TYPE_INTEGER,
+	    'pName' => DATA_TYPE_STRING,
+	    'pStart' => DATA_TYPE_STRING,
+            'pEnd' => DATA_TYPE_STRING,
+            'pColor' => DATA_TYPE_INTEGER,
+            'pMile' => DATA_TYPE_INTEGER,
+            'pRes' => DATA_TYPE_STRING,
+            'pComp' => DATA_TYPE_INTEGER,
+            'pParent' => DATA_TYPE_INTEGER
 	);
         
+        function __construct() {
+		Hook::fire('object_definition', 'GanttGetData', self::$columns);
+		parent::__construct('GanttGetData', 'gantt_get_data', true);
+	}
         
+        function getColumns() {
+		return array_keys(self::$columns);
+	}
 }
 
 ?>
